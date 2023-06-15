@@ -8,12 +8,24 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import store from './store/store.js'
+import MainPage from './components/mainPage.jsx'
+import ItemsList from './components/itemsList.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "main",
+    element: <MainPage />,
+    children: [
+      {
+        path: "store",
+        element: <ItemsList />
+      },
+    ]
   },
 ]);
 

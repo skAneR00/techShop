@@ -4,12 +4,9 @@ import { setBagProducts } from '../store/bagProductsSlice/bagProductsSlice';
 
 export default function ItemCard(props) {
 
-    
     const bagList = useSelector((state) => state.bagProducts.bagProducts);
+
     
-    // setBagProduct = (item) => {
-    //     dispatch(setBagProducts(item));
-    // }
 
     const dispatch = useDispatch();
     
@@ -25,9 +22,7 @@ export default function ItemCard(props) {
                     <p className='font-ubuntu font-medium text-[20px] text-ui-dark'>{props.props.productPrice}</p>
                     <button className='bg-ui-dark rounded-[9px] flex justify-center items-center w-[34px] h-[34px]'
                         onClick={
-                            // setBagProduct(props.props)  
                             () => {dispatch(setBagProducts(props.props))}
-                            // setBagProduct(props.props)
                         }
                     >
                         <img src={addToBag} alt="add icon" className='w-4 h-4' />

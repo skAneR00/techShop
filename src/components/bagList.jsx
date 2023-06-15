@@ -7,8 +7,6 @@ export default function BagList() {
 
     const items = useSelector((state) => state.bagProducts.bagProducts);
 
-    console.log(items);
-
     const dispatch = useDispatch();
 
     return (
