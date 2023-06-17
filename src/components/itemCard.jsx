@@ -6,17 +6,17 @@ export default function ItemCard(props) {
 
     const bagList = useSelector((state) => state.bagProducts.bagProducts);
 
-    
+
 
     const dispatch = useDispatch();
     
     return (
-        <div className="flex flex-col mx-5">
+        <div className="flex flex-col mx-5 max-w-56">
             <div className="bg-white rounded-[22px] w-[196px] h-[232px] flex items-center justify-center">
-                <img src={props.props.productImage} alt="item image" className="w-[160px] h-[200px]" />
+                <img src={props.props.productImages[0]} alt="item image" className="w-[160px] h-[200px]" />
             </div>
             <div className="flex flex-col mt-2 font-ubuntu p-2 gap-2">
-                <h4 className='font-ubuntu font-medium text-[20px] text-ui-dark'>{props.props.productName}</h4>
+                <h4 className='font-ubuntu font-medium text-[20px] text-ui-dark max-w-20'>{props.props.productName}</h4>
                 <span className='text-ui-tertiary font-ubuntu text-[16px] font-normal'>{props.props.productDescription}</span>
                 <div className='flex items-center justify-between p-2'>
                     <p className='font-ubuntu font-medium text-[20px] text-ui-dark'>{props.props.productPrice}</p>

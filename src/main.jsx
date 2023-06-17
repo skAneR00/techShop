@@ -10,6 +10,7 @@ import {
 import store from './store/store.js'
 import MainPage from './components/mainPage.jsx'
 import ItemsList from './components/itemsList.jsx'
+import AdminPage from './components/adminPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path: "admin",
+    element: <AdminPage />,
+  }
 ]);
 
 

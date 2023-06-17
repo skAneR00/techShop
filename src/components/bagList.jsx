@@ -16,8 +16,9 @@ export default function BagList() {
                 {
                     items.length > 0 ?
                         items.map((item) => (
-                            <div className="w-20 h-20 bg-white rounded-xl p-2">
+                            <div className="w-20 h-20 bg-white rounded-xl p-2 relative" key={item.id}>
                                 <img src={item.productImage} className="w-full h-full" />
+                                <button type="button" className="w-5 h-5 absolute right-1 top-1 rounded-full bg-ui-danger text-sm font-black text-center text-white">-</button>
                             </div>
                         ))
                         :

@@ -22,7 +22,6 @@ export default function MainPage() {
                     <img src={Exit} alt="exit" className='w-6 h-auto' />
                 </div>
             </div>
-            {/* <ItemsList /> */}
             <Outlet />
             <BagList />
         </div>
