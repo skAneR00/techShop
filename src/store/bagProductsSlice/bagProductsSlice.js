@@ -13,16 +13,12 @@ export const bagProducts = createSlice({
         removeBagProduct: (state, action) => {
             const productID = action.payload;
             state.bagProducts = state.bagProducts.filter(
-                (product) => product.ID !== productID
+                (product) => product.id !== productID
             );
-        },
-        addBagProduct: (state, action) => {
-            const product = action.payload;
-            state.bagProducts.push(product);
         },
     },
 });
 
-export const { setBagProducts, removeBagProduct, addBagProduct } = bagProducts.actions;
+export const { setBagProducts, removeBagProduct } = bagProducts.actions;
 
 export default bagProducts.reducer;

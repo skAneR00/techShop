@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBagProduct } from "../store/bagProductsSlice/bagProductsSlice";
 import WhiteBagIcon from '../assets/White-Bag-Icon.svg';
+import { Link } from "react-router-dom";
 
 
 export default function BagList() {
@@ -17,8 +19,14 @@ export default function BagList() {
                     items.length > 0 ?
                         items.map((item) => (
                             <div className="w-20 h-20 bg-white rounded-xl p-2 relative" key={item.id}>
-                                <img src={item.productImage} className="w-full h-full" />
-                                <button type="button" className="w-5 h-5 absolute right-1 top-1 rounded-full bg-ui-danger text-sm font-black text-center text-white">-</button>
+                                <img src={item.productImages[0]} className="w-full h-full" />
+                                <button type="button" className="w-5 h-5 absolute -right-2 -top-2 rounded-full bg-ui-danger text-sm font-black text-center text-white" 
+                                    onClick={() => {
+                                        dispatch(removeBagProduct(item.id))
+                                    }}
+                                >
+                                    -
+                                </button>
                             </div>
                         ))
                         :
@@ -26,10 +34,10 @@ export default function BagList() {
                 }
             </div>
             <div className="flex justify-center">
-                <button className="flex items-center justify-center w-40 h-10 rounded-xl text-white bg-ui-dark my-4">
+                <Link to="bag" className="flex items-center justify-center w-40 h-10 rounded-xl text-white bg-ui-dark my-4">
                     <img src={WhiteBagIcon} className="w-5 h-5 mr-2" />
                     View Bag
-                </button>
+                </Link>
             </div>
         </div>
     )

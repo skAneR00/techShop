@@ -11,6 +11,7 @@ import store from './store/store.js'
 import MainPage from './components/mainPage.jsx'
 import ItemsList from './components/itemsList.jsx'
 import AdminPage from './components/adminPage.jsx'
+import BagPage from './components/bagPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         path: "store",
         element: <ItemsList />
       },
+      {
+        path: "bag",
+        element: <BagPage />
+      }
     ]
   },
   {

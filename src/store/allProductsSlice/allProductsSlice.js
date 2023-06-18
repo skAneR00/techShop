@@ -8,6 +8,15 @@ export const allProducts = createSlice({
     reducers: {
         setAllProducts: (state, action) => {
             state.allProducts = action.payload
+        },
+        addAllProducts: (state, action) => {
+            state.allProducts.push(action.payload);
+        },
+        removeAllProducts: (state, action) => {
+            const productID = action.payload;
+            state.allProducts = state.allProducts.filter(
+                (product) => product.id !== productID
+            );
         }
     },
 })
