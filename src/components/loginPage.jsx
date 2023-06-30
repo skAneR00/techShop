@@ -42,7 +42,7 @@ export default function LoginPage() {
     const dispatch = useDispatch();
 
     return (
-        <div className="flex h-full justify-center items-center">
+        <div className="flex h-screen justify-center items-center">
             <form className="flex flex-col items-center justify-between gap-5 py-5 bg-white w-1/5 h-3/5 rounded-lg shadow-xl">
                 <h4 className="text-3xl font-semibold">Hello!</h4>
 

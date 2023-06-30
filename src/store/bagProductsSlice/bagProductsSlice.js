@@ -7,14 +7,30 @@ export const bagProducts = createSlice({
     },
     reducers: {
         setBagProducts: (state, action) => {
-            console.log(action.payload);
-            state.bagProducts.push(action.payload);
+            const existingProduct = state.bagProducts.find(
+                item =>
+                    item.productName === action.payload.productName &&
+                    item.productColor === action.payload.productColor
+            );
+
+            if (existingProduct) {
+                existingProduct.productCount++;
+            } else {
+                state.bagProducts.push(action.payload);
+            }
         },
         removeBagProduct: (state, action) => {
             const productID = action.payload;
-            state.bagProducts = state.bagProducts.filter(
-                (product) => product.id !== productID
-            );
+            state.bagProducts.map((item) => {
+                if (item.id == productID && item.productCount > 1) {
+                    item.productCount--
+                }
+                else if (item.id == productID && item.productCount == 1) {
+                    state.bagProducts = state.bagProducts.filter(
+                        (product) => product.id !== productID
+                    );
+                }
+            })
         },
     },
 });
