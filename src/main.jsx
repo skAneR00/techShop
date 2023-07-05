@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import store from './store/store.js'
 import MainPage from './components/mainPage.jsx'
 import ItemsList from './components/itemsList.jsx'
@@ -14,6 +11,7 @@ import AdminPage from './components/adminPage.jsx'
 import BagPage from './components/bagPage.jsx'
 import Checkout from './components/checkout.jsx'
 import ItemPage from './components/itemPage.jsx'
+import ProfilePage from './components/profilePage.jsx'
 
 
 const router = createBrowserRouter([
@@ -36,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "item/:itemId",
         element: <ItemPage />
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />
       }
     ]
   },

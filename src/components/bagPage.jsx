@@ -13,7 +13,7 @@ export default function BagPage() {
     const dispatch = useDispatch();
 
     return (
-        <div className='flex flex-1 flex-grow'>
+        <div className='flex w-full'>
             <div className="flex flex-col flex-2 gap-4 ml-5 px-12 pt-12 w-3/4">
                 <div className="m-2">
                     <h2 className="text-ui-dark text-5xl font-normal">Check Your Bag Items</h2>

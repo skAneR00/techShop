@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setBagProducts, removeBagProduct } from '../store/bagProductsSlice/bagProductsSlice';
+import { setBagProducts, removeBagProduct, deleteAllBagProducts } from '../store/bagProductsSlice/bagProductsSlice';
 import { Link } from "react-router-dom";
 import Back from '../assets/Back.svg'
 
@@ -8,6 +8,26 @@ export default function Checkout() {
 
     const items = useSelector((state) => state.bagProducts.bagProducts);
     const user = useSelector((state) => state.activeUser.activeUser);
+
+    //#region calculate
+    const calculateTotalPrice = () => {
+        const totalPrice = items.reduce((total, item) => total + Number(item.productPrice.split(' ').join('')) * item.productCount, 0);
+        return totalPrice;
+    };
+
+    const calculateShipping = () => {
+        return (items.length * 3000);
+    }
+
+    const calculateVat = () => {
+        const totalPrice = items.reduce((total, item) => total + Number(item.productPrice.split(' ').join('')) * item.productCount, 0);
+        return ((totalPrice * 10) / (10+100));
+    }
+
+    const calculateSumm = () => {
+        return Number(calculateTotalPrice()) + Number(calculateShipping()) + Number(calculateVat());
+    }
+    //#endregion
 
     const dispatch = useDispatch();
 
@@ -114,22 +134,22 @@ export default function Checkout() {
                     <div className='flex flex-col gap-4 py-4 border-b-2 border-ui-light'>
                         <div className='flex justify-between text-ui-tertiary text-base'>
                             <span>Items: </span>
-                            <span>...</span>
+                            <span>{calculateTotalPrice().toLocaleString()} ₸</span>
                         </div>
                         <div className='flex justify-between text-ui-tertiary text-base'>
                             <span>Shipping: </span>
-                            <span>...</span>
+                            <span>{calculateShipping().toLocaleString()} ₸</span>
                         </div>
                         <div className='flex justify-between text-ui-tertiary text-base'>
                             <span>VAT Payment: </span>
-                            <span>...</span>
+                            <span>{calculateVat().toLocaleString()} ₸</span>
                         </div>
                     </div>
                     <div className='flex justify-between text-ui-danger font-medium text-xl border-b-2 border-ui-light py-4'>
                         <span>Order Total: </span>
-                        <pre><span>  1 000 000</span></pre>
+                        <pre><span> {calculateSumm().toLocaleString()} ₸</span></pre>
                     </div>
-                    <Link to="" className='text-white bg-ui-dark rounded-xl px-6 py-2 flex justify-center items-center'>
+                    <Link to="../main/store" className='text-white bg-ui-dark rounded-xl px-6 py-2 flex justify-center items-center' onClick={() => dispatch(deleteAllBagProducts())}>
                         Place your order
                     </Link>
                 </div>

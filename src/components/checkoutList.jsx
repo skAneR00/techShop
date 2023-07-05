@@ -9,13 +9,12 @@ export default function CheckoutList() {
     const items = useSelector((state) => state.bagProducts.bagProducts);
 
     const calculateTotalPrice = () => {
-        items.map((item) => console.log(Number(item.productPrice.split(' ').join('') * item.productCount)));
         const totalPrice = items.reduce((total, item) => total + Number(item.productPrice.split(' ').join('')) * item.productCount , 0);
         return totalPrice.toLocaleString();
     };
 
     return (
-        <div className="mt-[72px] flex flex-grow-[0] flex-col items-center w-1/5">
+        <div className="mt-[72px] flex flex-grow-0 flex-col items-center w-1/5">
             <h4 className="text-ui-dark font-medium text-4xl self-center">Bag</h4>
             <div className="flex flex-wrap mt-2 gap-3 justify-center">
                 {

@@ -30,7 +30,7 @@ export default function MainPage() {
             <div className='flex items-center justify-between flex-col bg-white min-w-[72px] h-full rounded-xl text-slate-700'>
                 <div className='flex flex-col gap-8 mt-8'>
                     <img src={logo} alt="logo" className='w-6 h-auto' />
-                    <Link to=""><img src={Profile} alt="menu" className='w-6 h-auto' /></Link>
+                    <Link to="profile"><img src={Profile} alt="menu" className='w-6 h-auto' /></Link>
                     <Link to="store"><img src={shopIcon} alt="shop" className='w-6 h-auto' /></Link>
                     <Link to="bag"><img src={bagIcon} alt="bag" className='w-6 h-auto' /></Link>
                 </div>

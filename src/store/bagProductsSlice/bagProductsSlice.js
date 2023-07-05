@@ -32,9 +32,12 @@ export const bagProducts = createSlice({
                 }
             })
         },
+        deleteAllBagProducts: (state, action) => {
+            state.bagProducts = [];
+        },
     },
 });
 
-export const { setBagProducts, removeBagProduct } = bagProducts.actions;
+export const { setBagProducts, removeBagProduct, deleteAllBagProducts } = bagProducts.actions;
 
 export default bagProducts.reducer;
