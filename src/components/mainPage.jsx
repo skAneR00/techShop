@@ -26,15 +26,15 @@ export default function MainPage() {
     const dispatch = useDispatch();
     
     return (
-        <div className='flex h-screen py-5'>
-            <div className='flex items-center justify-between flex-col bg-white min-w-[72px] h-full rounded-xl text-slate-700'>
-                <div className='flex flex-col gap-8 mt-8'>
+        <div className='flex h-screen lg:py-5 flex-col lg:flex-row'>
+            <div className='flex items-center justify-between lg:flex-col flex-row bg-white min-w-[72px] lg:h-full h-20 rounded-xl text-slate-700 p-3 m-3 lg:m-0 lg:p-0'>
+                <div className='flex lg:flex-col flex-row gap-8 lg:mt-8 ml-2 lg:ml-0'>
                     <img src={logo} alt="logo" className='w-6 h-auto' />
                     <Link to="profile"><img src={Profile} alt="menu" className='w-6 h-auto' /></Link>
                     <Link to="store"><img src={shopIcon} alt="shop" className='w-6 h-auto' /></Link>
                     <Link to="bag"><img src={bagIcon} alt="bag" className='w-6 h-auto' /></Link>
                 </div>
-                <div className='flex justify-center items-center mb-8 h-10 w-10 rounded-[10px] bg-ui-danger'>
+                <div className='flex justify-center items-center lg:mb-8 h-10 w-10 rounded-[10px] bg-ui-danger'>
                     <Link to="/"><img src={Exit} alt="exit" className='w-6 h-auto' /></Link>
                 </div>
             </div>

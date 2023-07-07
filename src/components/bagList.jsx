@@ -11,7 +11,7 @@ export default function BagList() {
     const dispatch = useDispatch();
 
     return (
-        <div className="mt-[72px] flex flex-col flex-1 flex-shrink items-center w-1/5">
+        <div className="mt-[72px] flex flex-col flex-1 flex-shrink items-center md:w-1/5 w-full">
             <h4 className="text-ui-dark font-medium text-4xl self-center">Bag</h4>
             <div className="flex flex-wrap mt-2 gap-3 justify-center">
                 {

@@ -43,7 +43,7 @@ export default function LoginPage() {
 
     return (
         <div className="flex h-screen justify-center items-center">
-            <form className="flex flex-col items-center justify-between gap-5 py-5 bg-white w-1/5 h-3/5 rounded-lg shadow-xl">
+            <form className="flex flex-col items-center justify-between gap-5 py-5 bg-white w-4/5 h-3/5 rounded-lg shadow-xl md:w-3/5 sm:w-3/5 lg:w-1/5">
                 <h4 className="text-3xl font-semibold">Hello!</h4>
 
                 <div className="gap-5 flex w-full flex-col items-center">

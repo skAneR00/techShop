@@ -1,7 +1,6 @@
-import { setAddress } from "../store/setactiveUserSlice/setActiveUserSlice"
+import { setAddress } from "../../store/setactiveUserSlice/setActiveUserSlice"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 
 
 export default function AddressPopup({ showPopup }) {
@@ -20,7 +19,8 @@ export default function AddressPopup({ showPopup }) {
             "country": country,
             "city": city,
             "state": state,
-            "street": streetName
+            "street": streetName,
+            "active": false
         }));
         showPopup();
     }
@@ -28,7 +28,7 @@ export default function AddressPopup({ showPopup }) {
     const dispatch = useDispatch();
 
     return (
-        <form className="flex flex-col absolute top-[10%] left-[25%] w-1/2">
+        <form className="flex flex-col absolute md:top-[10%] md:left-[25%] top-[50%] md:w-1/2 w-full">
             <div className="bg-white p-8 rounded-2xl flex flex-col gap-4">
                 <h4 className="text-xl font-semibold mb-4">Add Address</h4>
                 <div className="flex flex-col ">

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removePaymentMethod, removeAddress } from "../store/setactiveUserSlice/setActiveUserSlice";
-import AddressPopup from "./addressPopup";
-import CardPopup from "./cardPopup";
+import AddressPopup from "./popups/addressPopup";
+import CardPopup from "./popups/cardPopup";
 import ShowPass from '../assets/ShowPass.svg';
 import HidePass from '../assets/HidePass.svg';
 import Remove from '../assets/Remove.svg';
@@ -11,6 +11,8 @@ import Remove from '../assets/Remove.svg';
 export default function ProfilePage() {
 
     const user = useSelector((state) => state.activeUser.activeUser);
+    const activeAddress = useSelector((state) => state.activeUser.activeAddress);
+    const activeCard = useSelector((state) => state.activeUser.activeCard);
 
     const [showPass, setShowPass] = useState(false);
 
@@ -22,14 +24,13 @@ export default function ProfilePage() {
     }
     const isShowCardPopup = () => {
         setShowCardPopup(!showCardPopup);
-        console.log(user);
     }
 
     const dispatch = useDispatch();
 
     return (
-        <div className="flex w-full px-5">
-            <div className="flex flex-col bg-white w-1/2 rounded-xl h-min py-5">
+        <div className="flex md:flex-row flex-col w-full px-5">
+            <div className="flex flex-col bg-white md:w-1/2 w-full rounded-xl h-min py-5">
                 <h4 className="text-ui-dark text-xl font-bold text-center">
                     Your Profile
                 </h4>
@@ -76,16 +77,14 @@ export default function ProfilePage() {
                     }
                 </div>
             </div>
-            <div className="flex flex-col w-full px-5 gap-5 items-start">
+            <div className="flex flex-col w-full px-5 gap-5 items-start mt-5 md:mt-0">
                 {
                     showCardPopup ? null : <button className="flex px-6 py-2 rounded-xl border border-ui-dark gap-2" onClick={isShowAddressPopup}> Add Address </button>
                 }
                 {
-
                     showAddressPopup ?
                         <div className="flex justify-center items-center relative w-full">
                             <AddressPopup showPopup={isShowAddressPopup} />
-                            {/* <button className="text-ui-danger z-10 ml-[45%] mt-[1%] text-2xl font-bold" onClick={() => setShowAddressPopup(!showAddressPopup)}>X</button> */}
                         </div>
                         : null
                 }

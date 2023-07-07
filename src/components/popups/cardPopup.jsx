@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { setPaymentMethod } from '../store/setactiveUserSlice/setActiveUserSlice';
-import axios from 'axios';
+import { setPaymentMethod } from '../../store/setactiveUserSlice/setActiveUserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function CardPopup({ showPopup }) {
@@ -38,7 +37,7 @@ export default function CardPopup({ showPopup }) {
 
         return formattedValue;
     };
-    
+
     const formatExpiryDate = (value) => {
         const cleanedValue = value.replace(/\D/g, '');
 
@@ -50,10 +49,11 @@ export default function CardPopup({ showPopup }) {
 
     const addCard = () => {
         dispatch(setPaymentMethod({
-            "cardName" : cardHolderName,
-            "cardNum" : cardNumber,
-            "cardDate" : expiryDate,
-            "cardCVC" : cvv
+            "cardName": cardHolderName,
+            "cardNum": cardNumber,
+            "cardDate": expiryDate,
+            "cardCVC": cvv,
+            "active": false
         }))
         showPopup();
     }

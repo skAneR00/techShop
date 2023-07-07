@@ -6,12 +6,15 @@ export const allProducts = createSlice({
         allProducts: []
     },
     reducers: {
+        // Добавление всех продуктов в state
         setAllProducts: (state, action) => {
             state.allProducts = action.payload
         },
+        // Добавление продукта
         addAllProducts: (state, action) => {
             state.allProducts.push(action.payload);
         },
+        // Удаление Определенного продукта с помощью obj.filter()
         removeAllProducts: (state, action) => {
             const productID = action.payload;
             state.allProducts = state.allProducts.filter(
@@ -21,6 +24,6 @@ export const allProducts = createSlice({
     },
 })
 
-export const { setAllProducts } = allProducts.actions
+export const { setAllProducts, addAllProducts, removeAllProducts } = allProducts.actions
 
 export default allProducts.reducer

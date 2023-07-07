@@ -13,7 +13,7 @@ import Checkout from './components/checkout.jsx'
 import ItemPage from './components/itemPage.jsx'
 import ProfilePage from './components/profilePage.jsx'
 
-
+// Routes
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element: <BagPage />
       },
       {
-        path: "item/:itemId",
+        path: "item/:itemID",
         element: <ItemPage />
       },
       {
