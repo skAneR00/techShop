@@ -1,16 +1,17 @@
-import { Outlet, Link } from "react-router-dom";
-import { useState, useEffect } from 'react'
+import { Outlet, Link, Navigate } from "react-router-dom";
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setAllProducts } from '../store/allProductsSlice/allProductsSlice'
 import axios from 'axios';
 import logo from '../assets/logo.svg'
-import menuIcon from '../assets/Menu-Icon.svg'
 import shopIcon from '../assets/Shop-Icon.svg'
 import bagIcon from '../assets/Bag-Icon.svg'
 import Exit from '../assets/Exit.svg'
 import Profile from '../assets/Profile.svg'
 
 export default function MainPage() {
+
+    const user = useSelector((state) => state.activeUser.activeUser);
 
     useEffect(() => {
         loadProducts();
@@ -26,6 +27,7 @@ export default function MainPage() {
     const dispatch = useDispatch();
     
     return (
+        JSON.stringify(user) != '{}' ?
         <div className='flex h-screen lg:py-5 flex-col lg:flex-row'>
             <div className='flex items-center justify-between lg:flex-col flex-row bg-white min-w-[72px] lg:h-full h-20 rounded-xl text-slate-700 p-3 m-3 lg:m-0 lg:p-0'>
                 <div className='flex lg:flex-col flex-row gap-8 lg:mt-8 ml-2 lg:ml-0'>
@@ -41,5 +43,7 @@ export default function MainPage() {
 
             <Outlet />
         </div>
+        :
+        <Navigate to='/'/>
     )
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { setAllProducts } from '../store/allProductsSlice/allProductsSlice'
+import { Link } from "react-router-dom";
 
 export default function AdminPage() {
 
@@ -108,6 +109,9 @@ export default function AdminPage() {
                     <button type="button" className="bg-black text-white rounded-lg py-2" onClick={removeProduct}> Remove </button>
                 </div>
             </form>
+            <Link to='/' className="mt-6 px-6 py-2 rounded-xl border border-ui-dark h-min">
+                Back to Login page
+            </Link>
         </div>
     )
 }
